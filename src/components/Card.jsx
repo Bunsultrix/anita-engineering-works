@@ -1,0 +1,153 @@
+"use client";
+import React, { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronRight, Info } from "lucide-react";
+import { Animation } from "@/utils/animations";
+import { useGSAP } from "@gsap/react";
+
+export default function Card({
+	type = "category",
+	title = "Cart",
+	image = "",
+	link = "",
+	rotation = true,
+	icon,
+	info,
+	description = "",
+	classname = "",
+	width = "w-full",
+}) {
+	const productImageRef = useRef(null);
+	const infoRef = useRef(null);
+
+	const productTitleAnim = new Animation();
+	const productImageAnim = new Animation(productImageRef);
+
+	useGSAP(() => {
+		productImageAnim.fade(
+			"up",
+			2,
+			50,
+			"from",
+			true,
+			{ stagger: 1 },
+			{
+				scroller: "body",
+				scrub: 1,
+				start: "top 90%",
+				end: "bottom 70%",
+				delay: 2,
+			}
+		);
+		productTitleAnim.fade(
+			"up",
+			2,
+			50,
+			"from",
+			true,
+			{},
+			{
+				scroller: "body",
+				scrub: 1,
+				start: "top 90%",
+				end: "bottom 70%",
+				delay: 2,
+			}
+		);
+	});
+
+	function handleMouseover(event) {
+		event.stopPropagation();
+		productImageRef.current.style.rotate = "-45deg";
+	}
+	function handleMouseout() {
+		productImageRef.current.style.rotate = "0deg";
+	}
+	function handleInfoMouseover() {
+		infoRef.current.style.display = "block";
+	}
+	function handleInfoMouseout() {
+		infoRef.current.style.display = "none";
+	}
+
+	return type === "category" ? (
+		// Category Card
+		<div className="bg-white inline-flex flex-col flex-wrap lg:w-xs w-[10rem] h-[10rem] items-end rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.005] relative">
+			<div className="px-5 flex flex-col py-3">
+				<h3 className="lg:text-[2rem] text-[1.5rem] font-roboto lg:tracking-text tracking-text-mobile">
+					{title}
+				</h3>
+				<Link
+					className="text-right font-roboto lg:text-normal lg:tracking-text text-normal-mobile tracking-text-mobile"
+					href={link}
+				>
+					<div className="flex text-custom-yellow flex-row justify-end items-center">
+						<span>view</span>
+						<ChevronRight />
+					</div>
+				</Link>
+			</div>
+			<Image
+				className="bottom-0 self-start lg:w-[10rem] w-[8rem] h-[6rem] absolute lg:h-[8rem]"
+				src={image}
+				alt={type}
+				height={1000}
+				width={1000}
+			/>
+		</div>
+	) : type === "info" ? (
+		// Info Card
+		<div
+			className={` cursor-pointer px-8 py-5 my-5 bg-custom-gray flex lg:${width} rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.005] relative gap-3 ${classname}`}
+		>
+			<span>{icon}</span>
+			<div className="flex flex-col gap-1 tracking-text-mobile lg:tracking-text text-xl lg:text-4xl">
+				<h4 className="lg:tracking-text tracking-text-mobile font-poppins">
+					{title}
+				</h4>
+				<span className="opacity-50 text-normal-mobile lg:text-normal tracking-text-mobile lg:tracking-text font-roboto">
+					{info}
+				</span>
+			</div>
+		</div>
+	) : (
+		// Product Card
+		<div
+			onMouseOver={handleMouseover}
+			onMouseOut={handleMouseout}
+			className="lg:px-5 lg:py-3 px-2 py-2 bg-white lg:w-sm w-[10rem] inline-flex flex-col rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.005] relative"
+		>
+			<div ref={productTitleAnim.getRef()} className="px-5 flex flex-col py-3">
+				<h3 className="lg:text-[2rem] text-[1.2rem] font-roboto lg:tracking-text tracking-text-mobile">
+					{title}
+				</h3>
+			</div>
+			<Image
+				ref={productImageRef}
+				className={`self-center object-contain lg:w-[8rem] h-[5rem] lg:h-[10rem]`}
+				src={image}
+				alt={type}
+				height={1000}
+				width={1000}
+			/>
+
+			{description && (
+				<Info
+					onMouseOver={handleInfoMouseover}
+					onMouseOut={handleInfoMouseout}
+					size={20}
+					className="relative self-end text-custom-yellow"
+				/>
+			)}
+
+			<div
+				ref={infoRef}
+				style={{ display: "none" }}
+				className="absolute bottom-15 right-5 w-[90%] px-4 py-3 lg:text-[0.8rem] lg:tracking-text text-[0.4rem] tracking-text-mobile font-roboto bg-custom-yellow rounded-lg text-justify shadow-2xl"
+			>
+				<p>{description}</p>
+			</div>
+		</div>
+	);
+}
