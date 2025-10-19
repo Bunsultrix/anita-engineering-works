@@ -79,8 +79,8 @@ export default function RootLayout({ children }) {
 			path: "/washers",
 		},
 		{
-			name:"Clamps",
-			path:"/clamps"
+			name: "Clamps",
+			path: "/clamps",
 		},
 		{
 			name: "Others",
@@ -114,6 +114,9 @@ export default function RootLayout({ children }) {
 
 	return (
 		<html lang="en">
+			<head>
+				<link rel="icon" href="/favicon.png" />
+			</head>
 			<body className={`${kanit.variable} ${bebasNeue.variable} antialiased`}>
 				<Header
 					listOfLinks={navigationList}
