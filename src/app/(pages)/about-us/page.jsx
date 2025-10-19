@@ -160,122 +160,114 @@ export default function AboutUs() {
 
 		section1Image.fade(
 			"left",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 90%",
+				end: "bottom 80%",
 			}
 		);
 		section1Text.fade(
 			"right",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 90%",
+				end: "bottom 80%",
 			}
 		);
 		section2Image.fade(
 			"left",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 90%",
+				end: "bottom 100%",
 			}
 		);
 		section2Text.fade(
 			"right",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 100%",
+				end: "bottom 100%",
 			}
 		);
 		section3Image.fade(
 			"left",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 100%",
+				end: "bottom 100%",
 			}
 		);
 		section3Text.fade(
 			"right",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 100%",
+				end: "bottom 100%",
 			}
 		);
 		section4Image.fade(
 			"left",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 140%",
+				end: "bottom 100%",
 			}
 		);
 		section4Text.fade(
 			"right",
-			2,
-			70,
+			1,
+			40,
 			"from",
 			true,
 			{},
 			{
 				scroller: "body",
 				scrub: 1,
-				start: "top 60%",
-				end: "bottom 70%",
-				delay: 2,
+				start: "top 140%",
+				end: "bottom 100%",
 			}
 		);
 	});
