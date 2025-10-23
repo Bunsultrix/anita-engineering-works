@@ -1,10 +1,44 @@
+"use client";
+
 import Card from "@/components/Card";
-import React from "react";
+import React, { useState } from "react";
 import { Phone, Mail, House } from "lucide-react";
 import Button from "@/components/Button";
 import Link from "next/link";
 
 export default function ContactUs() {
+	const [formData, setFormData] = useState({
+		name: "",
+		phone: "",
+		email: "",
+		query: "",
+	});
+
+	let disabled =
+		!formData.email || !formData.name || !formData.query ? true : false;
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+		const response = await fetch("/api/send-query", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(formData),
+		});
+
+		setFormData({
+			name: "",
+			phone: "",
+			email: "",
+			query: "",
+		});
+	}
+
+	function handleChange(event) {
+		const { name, value } = event.target;
+		setFormData({ ...formData, [name]: value });
+	}
 	return (
 		<>
 			<section>
@@ -52,8 +86,12 @@ export default function ContactUs() {
 							</Link>
 						</div>
 					</div>
+
 					{/* Contact Form */}
-					<div className="lg:w-[50%] flex gap-3 flex-col justify-center items-center h-full bg-custom-yellow rounded-lg lg:px-10 px-2 py-10">
+					<form
+						onSubmit={handleSubmit}
+						className="lg:w-[50%] flex gap-3 flex-col justify-center items-center h-full bg-custom-yellow rounded-lg lg:px-10 px-2 py-10"
+					>
 						<div className="w-full flex flex-col gap-5">
 							<div className="flex lg:flex-row flex-col gap-3">
 								<div className="flex flex-col w-full">
@@ -65,6 +103,10 @@ export default function ContactUs() {
 									</label>
 									<input
 										type="text"
+										onChange={handleChange}
+										value={formData.name}
+										required
+										name="name"
 										id="name"
 										className="font-roboto lg:tracking-text tracking-text-mobile text-normal-mobile bg-white lg:text-normal px-2 py-2 outline-custom-yellow"
 									/>
@@ -78,6 +120,9 @@ export default function ContactUs() {
 									</label>
 									<input
 										type="text"
+										name="phone"
+										onChange={handleChange}
+										value={formData.phone}
 										id="phone"
 										className="font-roboto lg:tracking-text tracking-text-mobile text-normal-mobile bg-white lg:text-normal px-2 py-2 outline-custom-yellow"
 									/>
@@ -92,6 +137,10 @@ export default function ContactUs() {
 								</label>
 								<input
 									type="text"
+									name="email"
+									onChange={handleChange}
+									value={formData.email}
+									required
 									id="email"
 									className="font-roboto lg:tracking-text tracking-text-mobile text-normal-mobile bg-white lg:text-normal px-2 py-2 outline-custom-yellow"
 								/>
@@ -104,7 +153,11 @@ export default function ContactUs() {
 									Message
 								</label>
 								<textarea
+									required
+									onChange={handleChange}
+									value={formData.query}
 									rows={6}
+									name="query"
 									type="text"
 									id="message"
 									className="resize-none font-roboto lg:tracking-text tracking-text-mobile text-normal-mobile bg-white lg:text-normal px-2 py-2 outline-custom-yellow"
@@ -112,10 +165,12 @@ export default function ContactUs() {
 							</div>
 						</div>
 						<Button
+							disabled={disabled}
+							type="submit"
 							label={"Submit"}
 							className="hover:bg-black hover:text-white px-14 my-6"
 						/>
-					</div>
+					</form>
 				</div>
 			</section>
 			<section className="py-20">

@@ -11,11 +11,15 @@ function Button(
 		textColor = "text-black",
 		className = "",
 		handleClick = () => {},
+		type = "button",
+		disabled = false,
 	},
 	ref
 ) {
 	return (
 		<button
+			disabled={disabled}
+			type={type}
 			ref={ref}
 			onClick={handleClick}
 			className={`${bgColor} ${textColor} ${labelFontSize} font-roboto tracking-text py-5 px-2 rounded-lg cursor-pointer ${className}`}
