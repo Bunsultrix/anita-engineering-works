@@ -3,7 +3,6 @@ import nodemailer from "nodemailer";
 export async function POST(request) {
 	try {
 		const body = await request.json();
-		console.log("Done!")
 		const { name, email, phone, query } = body;
 		
 		if (!name || !email || !query)
