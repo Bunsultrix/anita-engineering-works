@@ -33,9 +33,21 @@ const merriWeather = Merriweather({
 });
 
 export const metadata = {
-	title: "Anita Engineering Works",
+	title: "Home | Anita Engineering Works",
 	description:
-		"Anita Engineering Works, established in 1998, is a trusted name in the field of fastener manufacturing. We specialize in the production of screws, bolts, nuts, and precision fasteners designed for diverse industrial applications. With over two decades of expertise, we have developed a reputation for delivering quality, reliability, and consistency. Our modern facility is equipped with advanced headers, rolling machines, and BT cut machines. This infrastructure enables us to achieve high-volume production with uncompromised accuracy.",
+		"Anita Engineering Works is a precision fastener manufacturer with decades of experience producing high‑quality screws, washers, clamps and custom fastening solutions for industrial, automotive and electrical sectors. The home page highlights the company’s manufacturing capabilities, quality certifications, production capacity and commitment to timely delivery and customer service. It also showcases key product categories, recent client projects and calls to action for enquiries or bulk orders. Content is written to build trust with procurement managers and engineers looking for reliable, scalable fastener suppliers.",
+	keywords: [
+		"Anita Engineering Works",
+		"precision fasteners",
+		"fastener manufacturers",
+		"screws",
+		"washers",
+		"clamps",
+		"custom fasteners",
+		"ISO certified",
+		"bulk orders",
+		"industrial fasteners",
+	],
 };
 
 export default function RootLayout({ children }) {
