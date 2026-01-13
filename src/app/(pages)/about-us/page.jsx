@@ -334,6 +334,64 @@ export default function AboutUs() {
 					</div>
 				</div>
 			</section>
+			{/* Our  */}
+			<section className="bg-custom-gray lg:py-12 py-4">
+				<h1
+					ref={founderHeading.getRef()}
+					className="text-custom-yellow font-poppins lg:text-heading text-heading-mobile text-center"
+				>
+					Our Family
+				</h1>
+				<div className="flex lg:flex-row-reverse flex-col lg:px-10 px-2 justify-center items-center gap-6">
+					<Image
+						ref={founderImage.getRef()}
+						src={"/images/founder/nitish.JPG"}
+						alt="Nitish"
+						height={1000}
+						width={1000}
+						className="object-contain h-[30rem] w-[30rem] rounded-full"
+					/>
+					<div ref={founderText.getRef()} className="flex flex-col">
+						<Image
+							src={"/images/founder/double-inverted-comma.png"}
+							alt="Founder Image"
+							height={1000}
+							width={1000}
+							className="object-contain h-20 w-20 rounded-full"
+						/>
+						<p className="font-roboto lg:tracking-text tracking-text-mobile text-normal-mobile lg:text-normal text-justify">
+							Driven by precision engineering and manufacturing excellence,
+							Nitish leads Anita Engineering Works with a strong focus on
+							quality, accuracy, and performance. The company specializes in the
+							manufacturing of industrial-grade nuts, bolts, and a wide range of
+							engineering accessories designed to meet demanding application
+							requirements. With a deep understanding of material selection,
+							dimensional accuracy, and strength parameters, every product is
+							developed to ensure durability, consistency, and compliance with
+							industry standards.
+							<br />
+							<br />
+							Under Nitish’s technical leadership, Anita Engineering Works
+							follows structured manufacturing processes, stringent quality
+							checks, and controlled production practices to deliver reliable
+							fastening solutions. The company continuously adopts improved
+							machining techniques and process optimizations to enhance product
+							efficiency and operational reliability. This commitment to
+							precision, timely delivery, and customer-specific requirements has
+							positioned Anita Engineering Works as a trusted partner for
+							engineering and industrial applications.
+						</p>
+
+						<Image
+							src={"/images/founder/double-inverted-comma-2.png"}
+							alt="Founder Image"
+							height={1000}
+							width={1000}
+							className="self-end object-contain h-20 w-20 rounded-full"
+						/>
+					</div>
+				</div>
+			</section>
 
 			{/* Products we manufacture */}
 			<section className="bg-custom-gray lg:px-10 lg:py-12 px-2 py-4">
