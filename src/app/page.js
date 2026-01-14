@@ -397,16 +397,16 @@ export default function Home() {
 					<div className="flex lg:flex-row flex-col gap-20 py-12">
 						<Image
 							id="c-3"
-							src="/images/home/certificate.jpg"
-							alt="certificate"
+							src="/images/home/gem.jpeg"
+							alt="Gem Certificate"
 							className=" border-black border-4 shadow-2xl p-3"
 							height={"400"}
 							width={"400"}
 						/>
 						<Image
 							id="c-4"
-							src="/images/home/certificate.jpg"
-							alt="certificate"
+							src="/images/home/iso-9001.jpeg"
+							alt="ISO 9001 Certificate"
 							className="border-black border-4 shadow-2xl p-3"
 							height={"400"}
 							width={"400"}
